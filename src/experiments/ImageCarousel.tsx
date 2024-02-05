@@ -9,11 +9,12 @@ import K8S from "../assets/icons/kubernetes-plain.svg";
 import PYTHON from "../assets/icons/python-original.svg";
 
 import styles from "./ImageCarousel.module.css";
+import Subtitle from "../components/text/Subtitle";
 
 const ImageCarousel = () => {
   return (
     <>
-      <h2>Image Carousel</h2>
+      <Subtitle>Image Carousel</Subtitle>
       <div className={styles.ImageCarousel}>
         <Carousel>
           <img src={DOCKER} className={styles.Image} />

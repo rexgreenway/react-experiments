@@ -1,5 +1,5 @@
 .App {
-  background-color: teal;
+  background-color: black;
 
   display: flex;
   flex-direction: column;
@@ -7,8 +7,4 @@
 
   height: 100vh;
   width: 100vw;
-}
-
-.Title {
-  margin: 0;
 }
