@@ -1,12 +1,16 @@
+import Title from "./components/text/Title";
+
 import ImageCarousel from "./experiments/ImageCarousel";
+import BubblePlot from "./experiments/BubblePlot";
 
 import styles from "./App.module.css";
-import Title from "./components/text/Title";
+
 function App() {
   return (
     <div className={styles.App}>
       <Title>React Experiments</Title>
       <ImageCarousel />
+      <BubblePlot />
     </div>
   );
 }

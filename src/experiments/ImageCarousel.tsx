@@ -20,7 +20,6 @@ const ImageCarousel = () => {
         <img src={JS} />
         <img src={K8S} />
         <img src={PYTHON} />
-        <p>dkhfdksh</p>
       </Carousel>
     </>
   );
