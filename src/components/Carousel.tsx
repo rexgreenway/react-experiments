@@ -1,8 +1,8 @@
-import { ReactNode } from "react";
+import { ReactElement } from "react";
 
 import styles from "./Carousel.module.css";
 
-const Carousel = ({ children }: { children: ReactNode }) => {
+const Carousel = ({ children }: { children: ReactElement[] }) => {
   return (
     <div className={styles.Carousel}>
       <div className={styles.Slider}>

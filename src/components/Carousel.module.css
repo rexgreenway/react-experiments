@@ -17,11 +17,17 @@
 
 .Content {
     animation: scroll 30s linear infinite;
-    width: 100%;
+    align-items: center;
+    background-color: inherit;
+    padding: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center;
+    width: 100%;
+}
+
+.Content img {
+    height: 40px;
 }
 
 @keyframes scroll {

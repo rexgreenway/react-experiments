@@ -1,3 +1,4 @@
+import Subtitle from "../components/text/Subtitle";
 import Carousel from "../components/Carousel";
 
 // Import SVGs
@@ -8,23 +9,19 @@ import JS from "../assets/icons/javascript-original.svg";
 import K8S from "../assets/icons/kubernetes-plain.svg";
 import PYTHON from "../assets/icons/python-original.svg";
 
-import styles from "./ImageCarousel.module.css";
-import Subtitle from "../components/text/Subtitle";
-
 const ImageCarousel = () => {
   return (
     <>
       <Subtitle>Image Carousel</Subtitle>
-      <div className={styles.ImageCarousel}>
-        <Carousel>
-          <img src={DOCKER} className={styles.Image} />
-          <img src={GO} className={styles.Image} />
-          <img src={GCP} className={styles.Image} />
-          <img src={JS} className={styles.Image} />
-          <img src={K8S} className={styles.Image} />
-          <img src={PYTHON} className={styles.Image} />
-        </Carousel>
-      </div>
+      <Carousel>
+        <img src={DOCKER} />
+        <img src={GO} />
+        <img src={GCP} />
+        <img src={JS} />
+        <img src={K8S} />
+        <img src={PYTHON} />
+        <p>dkhfdksh</p>
+      </Carousel>
     </>
   );
 };
