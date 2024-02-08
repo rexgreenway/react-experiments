@@ -86,7 +86,7 @@ const ImageCarousel = () => {
         </Carousel>
       </div>
       <h3>React</h3>
-      <CodeContainer code={jsx} language="javascript" />
+      <CodeContainer code={jsx} language="typescript" />
       <h3>CSS</h3>
       <CodeContainer code={css} language="css" />
     </div>

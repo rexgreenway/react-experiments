@@ -136,7 +136,7 @@ const BubblePlot = () => {
           {{ group: "group-3", radius: 3 }}
         </Bubble>
       </div>
-      <h3>CSS</h3>
+      <h3>React</h3>
       <CodeContainer code={code} language="typescript" />
     </div>
   );
