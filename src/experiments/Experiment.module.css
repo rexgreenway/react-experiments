@@ -1,0 +1,9 @@
+.Experiment {
+    border: 2px solid #ddd;
+}
+
+.ExperimentContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
