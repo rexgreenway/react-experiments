@@ -1,5 +1,6 @@
 import HorizontalLine from "./components/HorizontalLine";
 
+import NiceModal from "./experiments/NiceModal";
 import ImageCarousel from "./experiments/ImageCarousel";
 import BubblePlot from "./experiments/BubblePlot";
 
@@ -9,9 +10,15 @@ function App() {
   return (
     <div className={styles.App}>
       <a href="https://rexgreenway.github.io">{"<"} rexgreenway.github.io</a>
+
       <h1>React Experiments</h1>
+
+      <HorizontalLine />
+      <NiceModal />
+
       <HorizontalLine />
       <ImageCarousel />
+
       <HorizontalLine />
       <BubblePlot />
     </div>
