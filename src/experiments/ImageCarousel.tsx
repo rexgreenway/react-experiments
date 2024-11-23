@@ -85,9 +85,9 @@ const ImageCarousel = () => {
           <img src={PYTHON} />
         </Carousel>
       </div>
-      <h3>React</h3>
+      <h4>React</h4>
       <CodeContainer code={jsx} language="typescript" />
-      <h3>CSS</h3>
+      <h4>CSS</h4>
       <CodeContainer code={css} language="css" />
     </div>
   );
