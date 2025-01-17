@@ -108,8 +108,10 @@ const BubblePlot = () => {
       }
     }, [children, height, width]);
 
+    // Must set an explicit height for the top level div (no % values) otherwise
+    // run into a 'Maximum update depth exceeded' Error.
     return (
-      <div ref={divRef}>
+      <div style={{ height: "500px" }} ref={divRef}>
         <svg className="m-auto" ref={svgRef} />
       </div>
     );

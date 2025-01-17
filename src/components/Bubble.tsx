@@ -103,6 +103,8 @@ const Bubble = ({ children }: { children: Node[] }) => {
     }
   }, [children, height, width]);
 
+  // Must set an explicit height for the top level div (no % values) otherwise
+  // run into a `Maximum update depth exceeded.` Error.
   return (
     <div className={styles.Bubble} ref={divRef}>
       <svg className="m-auto" ref={svgRef} />
