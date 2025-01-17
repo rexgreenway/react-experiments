@@ -62,10 +62,11 @@ const BubblePlot = () => {
       const color = d3.scaleOrdinal(d3.schemeCategory10);
 
       // Create and start simulation
-      d3.forceSimulation(nodes)
+      const simulation = d3
+        .forceSimulation(nodes)
         // Centering nodes toward (0, 0) per node
-        .force("x", d3.forceX().strength(0.01))
-        .force("y", d3.forceY().strength(0.01))
+        .force("x", d3.forceX().strength(0.08))
+        .force("y", d3.forceY().strength(0.08))
         // Force for 'border' of nodes creates collisions
         .force(
           "collide",
@@ -75,8 +76,7 @@ const BubblePlot = () => {
         .force(
           "charge",
           d3.forceManyBody<Node>().strength((d) => r * d.radius)
-        )
-        .on("tick", ticked);
+        );
 
       // Establish SVG sizing and ViewBox
       const svgElement = d3
@@ -87,36 +87,64 @@ const BubblePlot = () => {
 
       // Join Node Data to simulation as circles
       const node = svgElement
-        .selectAll("circle")
-        .data(nodes)
-        .join(
-          (enter) =>
-            enter.append("circle").call((enter) =>
-              enter
-                .transition()
-                .duration(500)
-                .attr("r", (d) => r * d.radius)
-            ),
-          (update) => update,
-          (exit) => exit.transition().duration(500).attr("r", 0).remove()
-        )
+        .selectAll<SVGCircleElement, SVGCircleElement>("circle")
+        .data<Node>(nodes)
+        .join("circle")
+        .attr("r", (d) => r * d.radius)
         .attr("fill", (d) => color(d.group));
+
+      // Reheat the simulation when drag starts, and fix the subject position.
+      function dragStart(
+        event: d3.D3DragEvent<SVGCircleElement, SVGCircleElement, Node>
+      ) {
+        if (!event.active) simulation.alphaTarget(0.4).restart();
+        event.subject.fx = event.subject.x;
+        event.subject.fy = event.subject.y;
+      }
+
+      // Update the subject (dragged node) position during drag.
+      function dragged(
+        event: d3.D3DragEvent<SVGCircleElement, SVGCircleElement, Node>
+      ) {
+        event.subject.fx = event.x;
+        event.subject.fy = event.y;
+      }
+
+      // Restore the target alpha so the simulation cools after dragging ends.
+      // Unfix the subject position now that it’s no longer being dragged.
+      function dragEnd(
+        event: d3.D3DragEvent<SVGCircleElement, SVGCircleElement, Node>
+      ) {
+        if (!event.active) simulation.alphaTarget(0);
+        event.subject.fx = null;
+        event.subject.fy = null;
+      }
+      // Add drag behaviour
+      node.call(
+        d3
+          .drag<SVGCircleElement, Node>()
+          .on("start", dragStart)
+          .on("drag", dragged)
+          .on("end", dragEnd)
+      );
 
       // Change node on tick
       function ticked() {
         node.attr("cx", (d) => d.x!).attr("cy", (d) => d.y!);
       }
+
+      // Turn on Simulation
+      simulation.on("tick", ticked);
     }, [children, height, width]);
 
     // Must set an explicit height for the top level div (no % values) otherwise
     // run into a 'Maximum update depth exceeded' Error.
     return (
-      <div style={{ height: "500px" }} ref={divRef}>
+      <div style={{ height: "50vh" }} ref={divRef}>
         <svg className="m-auto" ref={svgRef} />
       </div>
     );
   };
-
   export default Bubble;
   `;
 
