@@ -1,6 +1,14 @@
 .Experiment {
     border: 2px solid #ddd;
     margin: 20px 0;
+    position: relative;
+}
+
+.ExperimentAnnotation {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    text-align: center;
 }
 
 .ExperimentContainer {

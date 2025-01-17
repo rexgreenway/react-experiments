@@ -16,8 +16,12 @@ function App() {
       <HorizontalLine />
       <NiceModal />
 
+      <br />
+
       <HorizontalLine />
       <ImageCarousel />
+
+      <br />
 
       <HorizontalLine />
       <BubblePlot />

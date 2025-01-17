@@ -157,6 +157,7 @@ const BubblePlot = () => {
         DOM.
       </p>
       <div className={styles.Experiment}>
+        <h2 className={styles.ExperimentAnnotation}>↓ DRAG THE BUBBLES ↓</h2>
         <Bubble>
           {{ group: "group-1", radius: 1 }}
           {{ group: "group-1", radius: 2 }}
