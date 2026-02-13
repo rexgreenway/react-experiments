@@ -9,7 +9,7 @@ import styles from "./App.module.css";
 function App() {
   return (
     <div className={styles.App}>
-      <a href="https://rexgreenway.github.io">{"<"} rexgreenway.github.io</a>
+      <a href="https://rexgreenway.me">{"<"} rexgreenway.me</a>
 
       <h1>React Experiments</h1>
 
